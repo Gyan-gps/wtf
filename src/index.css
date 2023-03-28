@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.plan-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    height: 80px;
+    /* background-color: red; */
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin: 5px 0px;
+}
+.plan-card:first-child *{
+  margin: 4px 0px;
+}
+input,.option{
+  height: 25px;
+  border-radius: 8px;
+  border: none;
+}
+
+.gym{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gym-child{
+  margin: 10px;
+}
+
+.banner{
+  display: flex;
+  justify-content: center;    
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  align-items: center;
+}
+
+.free{
+  -webkit-clip-path: polygon(60% 0%,0% 0%,0% 50%,0% 100%,60% 100%,100% 55%,100% 100%,100% 50%);
+}
