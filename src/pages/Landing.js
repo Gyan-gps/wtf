@@ -41,106 +41,119 @@ export default function Landing() {
     <div>
       <Grid container>
         <Grid item xs={12} lg={4}>
-          <h1 style={{margin:"10px",
-              padding:"8px"}}>Filters</h1>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              height: {
-                xs: "auto",
-                lg: "70vh",
-                justifyContent: "space-evenly",
-                alignItems: "start",
-              },
-              margin:"10px",
-              padding:"8px"
-            }}
-          >
-            <div>
-              <h3>Location</h3>
-              <input type="text" placeholder="Enter location" />
-            </div>
-            <div>
-              <h3>Price</h3>
-              <input type="number" placeholder="Min" />
-              <input style={{marginLeft:"5px"}} type="number" placeholder="Max" />
-            </div>
-            <div>
-              <h3>City</h3>
-              <select value={search} onChange={handleChange}>
-                <option value="">All</option>
-                {cities.map((city) => {
-                  return (
-                    <option className="option" key={city.city} value={city.city}>
-                      {city.city}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
+          <Box sx={{ position: { xs: "", lg: "sticky" }, top: "0" }}>
+            <h1 style={{ margin: "10px", padding: "8px" }}>Filters</h1>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                height: {
+                  xs: "auto",
+                  lg: "70vh",
+                  justifyContent: "space-evenly",
+                  alignItems: "start",
+                },
+                margin: "10px",
+                padding: "8px",
+              }}
+            >
+              <div>
+                <h3>Location</h3>
+                <input type="text" placeholder="Enter location" />
+              </div>
+              <div>
+                <h3>Price</h3>
+                <input type="number" placeholder="Min" />
+                <input
+                  style={{ marginLeft: "5px" }}
+                  type="number"
+                  placeholder="Max"
+                />
+              </div>
+              <div>
+                <h3>City</h3>
+                <select value={search} onChange={handleChange}>
+                  <option value="">All</option>
+                  {cities.map((city) => {
+                    return (
+                      <option
+                        className="option"
+                        key={city.city}
+                        value={city.city}
+                      >
+                        {city.city}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </Box>
           </Box>
         </Grid>
         <Grid item xs={12} lg={8}>
           {gyms?.data.map((gym) => {
             return (
-              <div
-              className="gym"
+              <Box
+                className="gym"
                 key={gym.user_id}
-                style={{
+                sx={{
                   position: "relative",
                   margin: "10px",
                   background: "#131313",
                   height: "300px",
+                  alignItems:{xs:"end",lg:"center"}
                 }}
-                onClick={()=>{
-                  console.log(gym.user_id)
-                  navigate("/details/"+gym.user_id)
+                onClick={() => {
+                  console.log(gym.user_id);
+                  navigate("/details/" + gym.user_id);
                 }}
               >
-                <div>
-                <div className="gym-child">{gym.gym_name}</div>
-                <div className="gym-child">
-                  <span style={{color:"red"}}>{[...Array(Math.round(gym.rating))].map(() => {
-                    return <Star />;
-                  })}</span>
-                  <span>{[...Array(5 - Math.round(gym.rating))].map(() => {
-                    return <Star />;
-                  })}</span>
-                </div>
-                <div className="gym-child">
-                  {gym.address2}
-                  {","}
-                  {gym.address1}
-                </div>
-                <div className="gym-child">
-                  {gym.duration_text}
-                  {" away|"}
-                  {gym.distance_text}
-                </div>
-                <div
-                className="banner free"
-                  style={{
-                    color: "black",
-                    top: "10px",
-                    left: "5px",
-
-                  }}
-                >
-                  Free
-                </div>
-                <div
-                className="banner"
-                  style={{
-                    bottom: "20px",
-                    right: "30px",
-                    borderRadius:"4px"
-                  }}
-                >
-                  Book Now
-                </div>
-                </div>
-              </div>
+                <Box>
+                  <div className="gym-child">{gym.gym_name}</div>
+                  <div className="gym-child">
+                    <span style={{ color: "red" }}>
+                      {[...Array(Math.round(gym.rating))].map(() => {
+                        return <Star />;
+                      })}
+                    </span>
+                    <span>
+                      {[...Array(5 - Math.round(gym.rating))].map(() => {
+                        return <Star />;
+                      })}
+                    </span>
+                  </div>
+                  <div className="gym-child">
+                    {gym.address2}
+                    {","}
+                    {gym.address1}
+                  </div>
+                  <div className="gym-child">
+                    {gym.duration_text}
+                    {" away|"}
+                    {gym.distance_text}
+                  </div>
+                  <div
+                    className="banner free"
+                    style={{
+                      color: "black",
+                      top: "10px",
+                      left: "5px",
+                    }}
+                  >
+                    Free
+                  </div>
+                  <div
+                    className="banner"
+                    style={{
+                      bottom: "20px",
+                      right: "30px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Book Now
+                  </div>
+                </Box>
+              </Box>
             );
           })}
         </Grid>

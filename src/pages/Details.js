@@ -45,7 +45,7 @@ const Details = () => {
       details */}
       <Grid container>
         <Grid item xs={12} lg={6}>
-          <Box className="details" style={{height:{xs:"auto", lg:'90vh'}, margin: "10px", padding: "8px",display:"flex",flexDirection:"column",justifyContent:"space-between" }}>
+          <Box className="details" sx={{height:{xs:"auto", lg:'90vh'}, margin: "10px", padding: "8px",display:"flex",flexDirection:"column",justifyContent:"space-between" }}>
             <div>
               <h3>Description</h3>
               <p style={{ fontSize: "12px" }}>{gym?.description}</p>
